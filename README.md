@@ -5,8 +5,8 @@
 4- Criando um DataFrame <br />
 5- Exportando o DataFrame dentro do Azure Data Lake <br />
 6- Editando o Arquivo**
-# --------------------------------------------------------------------------
-# 1- Criando o Cluster <br />
+
+# 1- Criando o Cluster 
 
 1- Na pagina inicial do **Databricks** clique em **Cluster** <br />
 2- Clique em **+Create Cluster** <br />
@@ -19,7 +19,7 @@
 **Veja se o Cluster está em execução**<br />
 ![alt text](https://github.com/Lmanoel1994/Databricks_DataLake/blob/master/Pictures/3.png) <br />
 <br />
-# --------------------------------------------------------------------------
+
 # 2 Criando o Notebook <br />
 5- Clique em **Azure Databricks** para volta a tela de inicio <br />
 6- Clique em **New Notebook**  <br />
