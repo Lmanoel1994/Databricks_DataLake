@@ -4,25 +4,22 @@
 3- Conectando o Databricks no Data Lake <br />
 4- Criando um DataFrame <br />
 5- Exportando o DataFrame dentro do Azure Data Lake <br />
-6- Editando o Arquivo**<br />
-<br />
-
+6- Editando o Arquivo**
+# --------------------------------------------------------------------------
 # 1- Criando o Cluster <br />
 
 1- Na pagina inicial do **Databricks** clique em **Cluster** <br />
 2- Clique em **+Create Cluster** <br />
 ![alt text](https://github.com/Lmanoel1994/Databricks_DataLake/blob/master/Pictures/1.png) <br />
-<br />
 
 3- Edite todas as informações do Cluster e Marque a opção **Enable Credential Passthrough for user-level data access** <br />
 4 - Clique em  **Create Cluster** <br />
 ![alt text](https://github.com/Lmanoel1994/Databricks_DataLake/blob/master/Pictures/2.png) <br />
-<br />
 
 **Veja se o Cluster está em execução**<br />
 ![alt text](https://github.com/Lmanoel1994/Databricks_DataLake/blob/master/Pictures/3.png) <br />
 <br />
-
+# --------------------------------------------------------------------------
 # 2 Criando o Notebook <br />
 5- Clique em **Azure Databricks** para volta a tela de inicio <br />
 6- Clique em **New Notebook**  <br />
@@ -123,9 +120,9 @@ dbutils.fs.mv(file, 'adl://teste.azuredatalakestore.net/DF/NovoNome.csv')
 dbutils.fs.rm('adl://teste.azuredatalakestore.net/DF/Teste.csv/', recurse=True)
 ````
 ![alt text](https://github.com/Lmanoel1994/Databricks_DataLake/blob/master/Pictures/12.png) <br />
-
 <br />
-# Pronto <br />
+
+# Pronto
 ![alt text](https://github.com/Lmanoel1994/Databricks_DataLake/blob/master/Pictures/13.png) <br />
 
 
