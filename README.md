@@ -12,6 +12,7 @@
 1- Na pagina inicial do **Databricks** clique em **Cluster** <br />
 2- Clique em **+Create Cluster** <br />
 ![alt text](https://github.com/Lmanoel1994/Databricks_DataLake/blob/master/Pictures/1.png) <br />
+<br />
 
 3- Edite todas as informações do Cluster e Marque a opção **Enable Credential Passthrough for user-level data access** <br />
 4 - Clique em  **Create Cluster** <br />
@@ -52,7 +53,7 @@ spark.conf.set('fs.azure.account.oauth.client.endpoint', Endpoint)
 # https://docs.databricks.com/data/data-sources/azure/azure-datalake-gen2.html 
 ````
 ![alt text](https://github.com/Lmanoel1994/Databricks_DataLake/blob/master/Pictures/5.png) <br />
-
+<br />
 
 # 4 Criando o DataFrame <br />
 9- Vamos criar um **DataFrame** para usarmos como Exemplo :
@@ -75,8 +76,9 @@ df.repartition(1).write.format("csv").option("header", "true").save("adl://teste
 ````
 **Veja que o Spark criou uma pasta chamada Teste.csv e dentro desta pasta ele criou varios arquivos, e o nosso Dataframe seria o "part-00000-tid....."** <br />
 ![alt text](https://github.com/Lmanoel1994/Databricks_DataLake/blob/master/Pictures/7.png) <br />
+<br />
 
-11- Agora vamos criar uma Variavel na qual irá copiar o caminho do ultimo arquivo que está dentro da pasta **Teste.csv** 
+11- Agora vamos criar uma Variavel na qual irá copiar o caminho do ultimo arquivo que está dentro da pasta **Teste.csv**  <br />
 
 ````
 #Copiando o caminho do ultimo arquivo na pasta 'Teste'
@@ -85,6 +87,7 @@ print(file)
 ````
 
 ![alt text](https://github.com/Lmanoel1994/Databricks_DataLake/blob/master/Pictures/8.png) <br />
+<br />
 
 12 - Agora vamos Mover o nosso **Dataframe**  a pasta que queriamos salvar, na qual seria a **DF** <br />
 
@@ -93,24 +96,27 @@ print(file)
 dbutils.fs.mv(file, 'adl://teste.azuredatalakestore.net/DF/')
 ````
 ![alt text](https://github.com/Lmanoel1994/Databricks_DataLake/blob/master/Pictures/9.png) <br />
+<br />
 
 
-13 - Novamente iremos salvar dentro de uma variavel o caminho do ultimo arquivo, mas agora sera dentro da pasta **DF**
+13 - Novamente iremos salvar dentro de uma variavel o caminho do ultimo arquivo, mas agora sera dentro da pasta **DF** <br />
 ````
 #Copiando o caminho do ultimo arquivo na pasta 'DF'
 file=dbutils.fs.ls('adl://teste.azuredatalakestore.net/DF')[-1].path 
 print(file)
 ````
 ![alt text](https://github.com/Lmanoel1994/Databricks_DataLake/blob/master/Pictures/10.png) <br />
+<br />
 
-14-  Agora vamos renomear o nosso arquivo para **NovoNome.csv**
+14-  Agora vamos renomear o nosso arquivo para **NovoNome.csv** <br />
 ````
 #Renomeando o Arquivo para 'NovoNome.csv'
 dbutils.fs.mv(file, 'adl://teste.azuredatalakestore.net/DF/NovoNome.csv')
 ````
 ![alt text](https://github.com/Lmanoel1994/Databricks_DataLake/blob/master/Pictures/11.png) <br />
+<br />
 
-15 -  Agora vamos excluir a pasta **Teste.csv**
+15 -  Agora vamos excluir a pasta **Teste.csv** <br />
 
 ````
 #Excluindo a pasta Teste
