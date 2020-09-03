@@ -1,13 +1,13 @@
-# DataBricks + Azure Datalake <br />
+# DataBricks +  Azure Datalake <br />
 **1- Criando um Cluster no Databricks <br />
 2- Criando um Notebook <br />
 3- Conectando o Databricks no DataLake <br />
 4- Criando um DataFrame <br />
 5- Exportando o DataFrame dentro do Azure DataLake <br />
 6- Editando o Arquivo**<br />
+<br />
 
-
-# 1- Criando o Cluster 
+# 1- Criando o Cluster <br />
 
 1- Na pagina inicial do **Databricks** clique em **Cluster** <br />
 2- Clique em **+Create Cluster** <br />
@@ -17,19 +17,22 @@
 4 - Clique em  **Create Cluster** <br />
 ![alt text](https://github.com/Lmanoel1994/Databricks_DataLake/blob/master/Pictures/2.png) <br /
 ><br />
+
 **Veja se o Cluster está em execução**<br />
 ![alt text](https://github.com/Lmanoel1994/Databricks_DataLake/blob/master/Pictures/3.png) <br />
+<br />
 
 # 2 Criando o Notebook <br />
 5- Clique em **Azure Databricks** para volta a tela de inicio <br />
 6- Clique em **New Notebook**  <br />
 7- Preencha os Campo de **Name**, em **Default Language** selecione **Python** e **Cluster**  selecione oque acabamos de criar <br />
 ![alt text](https://github.com/Lmanoel1994/Databricks_DataLake/blob/master/Pictures/4.png) <br />
+<br />
 
-# 3- Conectando o Databricks no DataLake 
+# 3- Conectando o Databricks no DataLake <br />
 8 - Precisamos Obter as chaves das credenciais da Azure Data Lake. <br />
 Para obter as chaves basta seguir a documentação  <br />
-https://docs.databricks.com/data/data-sources/azure/azure-datalake-gen2.html
+https://docs.databricks.com/data/data-sources/azure/azure-datalake-gen2.html 
 ````
 #Agrupado chaves relevantes
 ClientId = ''
@@ -46,12 +49,12 @@ spark.conf.set('fs.azure.account.oauth.client.id', ClientId)
 spark.conf.set('fs.azure.account.oauth.client.secret', ClientSecret)
 spark.conf.set('fs.azure.account.oauth.client.endpoint', Endpoint)
 
-# https://docs.databricks.com/data/data-sources/azure/azure-datalake-gen2.html
+# https://docs.databricks.com/data/data-sources/azure/azure-datalake-gen2.html 
 ````
 ![alt text](https://github.com/Lmanoel1994/Databricks_DataLake/blob/master/Pictures/5.png) <br />
+<br />
 
 # 4 Criando o DataFrame <br />
-
 9- Vamos criar um **DataFrame** para usarmos como Exemplo :
 ````
 Dados = [('Lucas',26,'SãoPaulo','1994-09-01','M',4000),
@@ -63,13 +66,14 @@ df = spark.createDataFrame(data=Dados, schema = Colunas)
 df.show()
 ````
 ![alt text](https://github.com/Lmanoel1994/Databricks_DataLake/blob/master/Pictures/6.png) <br />
+<br />
 
 # 5- Exportando o DataFrame dentro do Azure DataLake <br />
 10 - Vamos Exporta o nosso **DataFrame** para o **Data Lake** dentro da pasta **DF** com o nome Teste.csv <br />
 ````
 df.repartition(1).write.format("csv").option("header", "true").save("adl://teste.azuredatalakestore.net/DF/Teste.csv")
 ````
-**Veja que o Spark criou uma pasta chamada **Teste.csv e dentro desta pasta ele criou varios arquivos, e o nosso Dataframe seria o "part-00000-tid....." **
+**Veja que o Spark criou uma pasta chamada **Teste.csv e dentro desta pasta ele criou varios arquivos, e o nosso Dataframe seria o "part-00000-tid....." ** <br />
 ![alt text](https://github.com/Lmanoel1994/Databricks_DataLake/blob/master/Pictures/7.png) <br />
 
 11- Agora vamos criar uma Variavel na qual irá copiar o caminho do ultimo arquivo que está dentro da pasta **Teste.csv** 
@@ -115,7 +119,7 @@ dbutils.fs.rm('adl://teste.azuredatalakestore.net/DF/Teste.csv/', recurse=True)
 ![alt text](https://github.com/Lmanoel1994/Databricks_DataLake/blob/master/Pictures/12.png) <br />
 
 <br />
-# Pronto
+# Pronto <br />
 ![alt text](https://github.com/Lmanoel1994/Databricks_DataLake/blob/master/Pictures/13.png) <br />
 
 
