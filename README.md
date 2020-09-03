@@ -15,8 +15,8 @@
 
 3- Edite todas as informações do Cluster e Marque a opção **Enable Credential Passthrough for user-level data access** <br />
 4 - Clique em  **Create Cluster** <br />
-![alt text](https://github.com/Lmanoel1994/Databricks_DataLake/blob/master/Pictures/2.png) <br /
-><br />
+![alt text](https://github.com/Lmanoel1994/Databricks_DataLake/blob/master/Pictures/2.png) <br />
+<br />
 
 **Veja se o Cluster está em execução**<br />
 ![alt text](https://github.com/Lmanoel1994/Databricks_DataLake/blob/master/Pictures/3.png) <br />
@@ -29,7 +29,7 @@
 ![alt text](https://github.com/Lmanoel1994/Databricks_DataLake/blob/master/Pictures/4.png) <br />
 <br />
 
-# 3- Conectando o Databricks no DataLake <br />
+# 3- Conectando o Databricks no DataLake 
 8 - Precisamos Obter as chaves das credenciais da Azure Data Lake. <br />
 Para obter as chaves basta seguir a documentação  <br />
 https://docs.databricks.com/data/data-sources/azure/azure-datalake-gen2.html 
@@ -52,7 +52,7 @@ spark.conf.set('fs.azure.account.oauth.client.endpoint', Endpoint)
 # https://docs.databricks.com/data/data-sources/azure/azure-datalake-gen2.html 
 ````
 ![alt text](https://github.com/Lmanoel1994/Databricks_DataLake/blob/master/Pictures/5.png) <br />
-<br />
+
 
 # 4 Criando o DataFrame <br />
 9- Vamos criar um **DataFrame** para usarmos como Exemplo :
@@ -68,12 +68,12 @@ df.show()
 ![alt text](https://github.com/Lmanoel1994/Databricks_DataLake/blob/master/Pictures/6.png) <br />
 <br />
 
-# 5- Exportando o DataFrame dentro do Azure DataLake <br />
+# 5- Exportando o DataFrame dentro do Azure DataLake 
 10 - Vamos Exporta o nosso **DataFrame** para o **Data Lake** dentro da pasta **DF** com o nome Teste.csv <br />
 ````
 df.repartition(1).write.format("csv").option("header", "true").save("adl://teste.azuredatalakestore.net/DF/Teste.csv")
 ````
-**Veja que o Spark criou uma pasta chamada **Teste.csv e dentro desta pasta ele criou varios arquivos, e o nosso Dataframe seria o "part-00000-tid....." ** <br />
+**Veja que o Spark criou uma pasta chamada Teste.csv e dentro desta pasta ele criou varios arquivos, e o nosso Dataframe seria o "part-00000-tid....."** <br />
 ![alt text](https://github.com/Lmanoel1994/Databricks_DataLake/blob/master/Pictures/7.png) <br />
 
 11- Agora vamos criar uma Variavel na qual irá copiar o caminho do ultimo arquivo que está dentro da pasta **Teste.csv** 
