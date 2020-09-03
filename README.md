@@ -89,7 +89,7 @@ print(file)
 ![alt text](https://github.com/Lmanoel1994/Databricks_DataLake/blob/master/Pictures/8.png) <br />
 <br />
 
-12 - Agora vamos Mover o nosso **Dataframe**  a pasta que queriamos salvar, na qual seria a **DF** <br />
+12 - Agora vamos Mover o nosso **Dataframe**  a pasta que queriamos salvar, que seria  **DF** <br />
 
 ````
 #Movendo o arquivo para pasta 'DF'
