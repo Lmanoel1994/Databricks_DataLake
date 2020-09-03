@@ -1,9 +1,9 @@
-# DataBricks +  Azure Datalake <br />
+# DataBricks +  Azure Data lake <br />
 **1- Criando um Cluster no Databricks <br />
 2- Criando um Notebook <br />
-3- Conectando o Databricks no DataLake <br />
+3- Conectando o Databricks no Data Lake <br />
 4- Criando um DataFrame <br />
-5- Exportando o DataFrame dentro do Azure DataLake <br />
+5- Exportando o DataFrame dentro do Azure Data Lake <br />
 6- Editando o Arquivo**<br />
 <br />
 
@@ -29,7 +29,7 @@
 ![alt text](https://github.com/Lmanoel1994/Databricks_DataLake/blob/master/Pictures/4.png) <br />
 <br />
 
-# 3- Conectando o Databricks no DataLake 
+# 3- Conectando o Databricks no Data Lake 
 8 - Precisamos Obter as chaves das credenciais da Azure Data Lake. <br />
 Para obter as chaves basta seguir a documentação  <br />
 https://docs.databricks.com/data/data-sources/azure/azure-datalake-gen2.html 
@@ -68,7 +68,7 @@ df.show()
 ![alt text](https://github.com/Lmanoel1994/Databricks_DataLake/blob/master/Pictures/6.png) <br />
 <br />
 
-# 5- Exportando o DataFrame dentro do Azure DataLake 
+# 5- Exportando o DataFrame dentro do Azure Data Lake 
 10 - Vamos Exporta o nosso **DataFrame** para o **Data Lake** dentro da pasta **DF** com o nome Teste.csv <br />
 ````
 df.repartition(1).write.format("csv").option("header", "true").save("adl://teste.azuredatalakestore.net/DF/Teste.csv")
